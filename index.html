@@ -1,117 +1,137 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Sitio Web - Imitando NetworkChuck</title>
-  <!-- Fuente recomendada (ej: Google Fonts) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Mi Sitio Web</title>
+  <!-- Fuentes y estilos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" 
-    rel="stylesheet"
-  >
-  <!-- Vinculamos el CSS -->
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- HEADER / NAVBAR -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">
-        <!-- Coloca tu logo aquí -->
-        <img src="ruta-a-tu-logo.png" alt="Logo" />
+
+<header>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="ruta-a-tu-logo.png" alt="Logo">
+    </div>
+    <ul class="nav-links">
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#blog">Blog</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="hero" class="hero-section">
+  <h1>Título Principal</h1>
+  <p>Una frase corta y llamativa que describa tu sitio.</p>
+</section>
+
+<section id="sobre-mi" class="sobre-mi-section">
+  <div class="foto">
+    <img src="ruta-a-tu-foto.jpg" alt="Foto de perfil">
+  </div>
+  <div class="texto">
+    <h2>Sobre mí</h2>
+    <p>Aquí puedes escribir un resumen breve de quién eres.</p>
+  </div>
+</section>
+
+<section id="experiencia" class="experiencia-section">
+  <h2>Trabajo / Experiencia</h2>
+  <p>Detalla tu experiencia laboral.</p>
+</section>
+
+<section id="proyectos" class="proyectos-section">
+  <h2>Proyectos</h2>
+  <div class="proyectos-grid">
+    <div class="proyecto">
+      <h3>Proyecto 1</h3>
+      <p>Descripción breve del proyecto.</p>
+    </div>
+    <div class="proyecto">
+      <h3>Proyecto 2</h3>
+      <p>Descripción breve del proyecto.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contacto-section">
+  <h2>Contacto</h2>
+  <p>Explica cómo pueden comunicarse contigo.</p>
+  <form>
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" placeholder="Tu nombre">
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="Tu correo electrónico">
+    <label for="mensaje">Mensaje</label>
+    <textarea id="mensaje" placeholder="Escribe tu mensaje"></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+
+<section id="blog" class="blog-section">
+  <h2>Blog</h2>
+  <p>Aquí puedes mostrar tus últimas entradas.</p>
+</section>
+
+<footer class="footer-section">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="ruta-a-tu-logo.png" alt="Mi Logo">
+    </div>
+    <div class="footer-links-grid">
+      <div class="footer-column">
+        <h3>About</h3>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
       </div>
-      <ul class="nav-links">
-        <li><a href="#experiencia">Experiencia</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-        <li><a href="#blog">Blog</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- SECCIÓN PRINCIPAL (HERO) -->
-  <section id="hero" class="hero-section">
-    <h1>Título Principal</h1>
-    <p>Una frase corta y llamativa que describa tu sitio.</p>
-  </section>
-
-  <!-- SECCIÓN "SOBRE MÍ" -->
-  <section id="sobre-mi" class="sobre-mi-section">
-    <div class="foto">
-      <img src="ruta-a-tu-foto.jpg" alt="Foto de perfil" />
-    </div>
-    <div class="texto">
-      <h2>Sobre mí</h2>
-      <p>
-        Aquí puedes escribir un resumen breve de quién eres, a qué te dedicas, 
-        tu historia o tu misión.
-      </p>
-    </div>
-  </section>
-
-  <!-- SECCIÓN "TRABAJO / EXPERIENCIA" -->
-  <section id="experiencia" class="experiencia-section">
-    <h2>Trabajo / Experiencia</h2>
-    <p>
-      Detalla tu experiencia laboral, proyectos anteriores o puestos relevantes 
-      que hayas ocupado.
-    </p>
-  </section>
-
-  <!-- SECCIÓN "PROYECTOS" -->
-  <section id="proyectos" class="proyectos-section">
-    <h2>Proyectos</h2>
-    <div class="proyectos-grid">
-      <div class="proyecto">
-        <h3>Proyecto 1</h3>
-        <p>Descripción breve del proyecto.</p>
+      <div class="footer-column">
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="#">Coffee</a></li>
+          <li><a href="#">Merch</a></li>
+          <li><a href="#">Mugs</a></li>
+          <li><a href="#">Men's Apparel</a></li>
+          <li><a href="#">Kids & Youth Apparel</a></li>
+        </ul>
       </div>
-      <div class="proyecto">
-        <h3>Proyecto 2</h3>
-        <p>Descripción breve del proyecto.</p>
+      <div class="footer-column">
+        <h3>Courses</h3>
+        <ul>
+          <li><a href="#">Explore Academy</a></li>
+        </ul>
       </div>
-      <!-- Agrega más tarjetas de proyecto según necesites -->
+      <div class="footer-column">
+        <h3>Become Better at I.T.</h3>
+        <p>Get a career in I.T. with courses de tu marca.</p>
+        <a class="start-learning-btn" href="#">Start Learning →</a>
+      </div>
+      <div class="footer-column">
+        <h3>Social Networks</h3>
+        <ul>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
     </div>
-  </section>
+  </div>
+  <div class="footer-divider"></div>
+  <div class="footer-bottom">
+    <ul class="legal-links">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms and Conditions</a></li>
+    </ul>
+    <p class="copy">© 2025 MiSitio. All rights reserved.</p>
+  </div>
+</footer>
 
-  <!-- SECCIÓN "CONTACTO" -->
-  <section id="contacto" class="contacto-section">
-    <h2>Contacto</h2>
-    <p>Explica cómo pueden comunicarse contigo (formulario, email, etc.).</p>
-    <!-- Ejemplo de formulario de contacto (opcional) -->
-    <form>
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" placeholder="Tu nombre" />
-      
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="Tu correo electrónico" />
-      
-      <label for="mensaje">Mensaje</label>
-      <textarea id="mensaje" placeholder="Escribe tu mensaje"></textarea>
-      
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
-
-  <!-- SECCIÓN "BLOG" (o vista previa) -->
-  <section id="blog" class="blog-section">
-    <h2>Blog</h2>
-    <p>Aquí puedes mostrar tus últimas entradas de blog o un enlace directo a tu plataforma.</p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer-section">
-    <div class="footer-links">
-      <a href="#sobre-mi">About</a>
-      <a href="#blog">Blog</a>
-      <a href="#social">Social Networks</a>
-    </div>
-    <p class="copy">&copy; 2025 - Tu nombre o marca</p>
-  </footer>
-
-  <!-- Script opcional -->
-  <script src="script.js"></script>
 </body>
 </html>
