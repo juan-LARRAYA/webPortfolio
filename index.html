@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Mi Sitio Web</title>
+  <title>Juan Larraya - Todo es posible</title>
   <!-- Fuentes y estilos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,123 +15,277 @@
 <header>
   <nav class="navbar">
     <div class="logo">
-      <img src="ruta-a-tu-logo.png" alt="Logo">
+      <img src="Images/Logo.webp" alt="Logo">
     </div>
     <ul class="nav-links">
-      <li><a href="#experiencia">Experiencia</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#experiencia"><span class="lang-es">Experiencia</span><span class="lang-en">Experience</span></a></li>
+      <li><a href="#proyectos"><span class="lang-es">Proyectos</span><span class="lang-en">Projects</span></a></li>
+      <li><a href="#contacto"><span class="lang-es">Contacto</span><span class="lang-en">Contact</span></a></li>
       <li><a href="#blog">Blog</a></li>
+      <li class="language-selector">
+        <button id="btn-es" class="active">
+          🇦🇷
+        </button>
+        <button id="btn-en">
+          🇺🇸
+        </button>
+      </li>
     </ul>
   </nav>
 </header>
 
+<!-- SECCIÓN HERO -->
 <section id="hero" class="hero-section">
-  <h1>Título Principal</h1>
-  <p>Una frase corta y llamativa que describa tu sitio.</p>
+  <h1>Juan Cruz Larraya</h1>
+  <p>
+    <span class="lang-es">
+      ¡Hola! Soy un estudiante de Ingeniería Electrónica en FIUBA, apasionado por la automatización y la tecnología, viviendo en Recoleta, Buenos Aires.
+    </span>
+    <span class="lang-en">
+      Hi! I'm a student of Electronic Engineering at FIUBA, passionate about automation and technology, living in Recoleta, Buenos Aires.
+    </span>
+  </p>
 </section>
 
+<!-- SECCIÓN "SOBRE MÍ" -->
 <section id="sobre-mi" class="sobre-mi-section">
   <div class="foto">
-    <img src="ruta-a-tu-foto.jpg" alt="Foto de perfil">
+    <img src="Images/Carnet.jpg" alt="Foto de perfil">
   </div>
   <div class="texto">
-    <h2>Sobre mí</h2>
-    <p>Aquí puedes escribir un resumen breve de quién eres.</p>
+    <h2>
+      <span class="lang-es">Sobre mí</span>
+      <span class="lang-en">About Me</span>
+    </h2>
+    <p>
+      <span class="lang-es">
+        Soy Juan, un apasionado de la electrónica y la programación. Actualmente curso Ingeniería Electrónica en la Universidad de Buenos Aires y me encanta aprender, experimentar y poner en práctica mis habilidades en automatización.
+      </span>
+      <span class="lang-en">
+        I'm Juan, passionate about electronics and programming. I'm currently studying Electronic Engineering at the University of Buenos Aires, and I love learning, experimenting, and applying my automation skills.
+      </span>
+    </p>
   </div>
 </section>
 
+<!-- SECCIÓN "EXPERIENCIA" -->
 <section id="experiencia" class="experiencia-section">
-  <h2>Trabajo / Experiencia</h2>
-  <p>Detalla tu experiencia laboral.</p>
+  <h2>
+    <span class="lang-es">Experiencia</span>
+    <span class="lang-en">Experience</span>
+  </h2>
+  <p>
+    <span class="lang-es">
+      Soy pasante en el área de electricidad y automatización en Edelflex (Don Torcuato, Buenos Aires) desde septiembre de 2023. Ahí me encargo de desarrollar diagramas eléctricos, gestionar documentación con Office y AutoCAD, y programar en Python, Power Automate y TIA Portal.
+    </span>
+    <span class="lang-en">
+      I am an intern in the electricity and automation department at Edelflex (Don Torcuato, Buenos Aires) since September 2023. I develop electrical diagrams, manage documentation using Office and AutoCAD, and program in Python, Power Automate, and TIA Portal.
+    </span>
+  </p>
 </section>
 
+<!-- SECCIÓN "PROYECTOS" -->
 <section id="proyectos" class="proyectos-section">
-  <h2>Proyectos</h2>
+  <h2>
+    <span class="lang-es">Proyectos</span>
+    <span class="lang-en">Projects</span>
+  </h2>
   <div class="proyectos-grid">
     <div class="proyecto">
-      <h3>Proyecto 1</h3>
-      <p>Descripción breve del proyecto.</p>
+      <h3>
+        <span class="lang-es">Fuente de Alimentación Conmutada</span>
+        <span class="lang-en">Switching Power Supply</span>
+      </h3>
+      <p>
+        <span class="lang-es">
+          Diseñé una fuente de alimentación totalmente discreta con un 90% de eficiencia.
+        </span>
+        <span class="lang-en">
+          I designed a fully discrete power supply with 90% efficiency.
+        </span>
+      </p>
     </div>
     <div class="proyecto">
-      <h3>Proyecto 2</h3>
-      <p>Descripción breve del proyecto.</p>
+      <h3>
+        <span class="lang-es">Algoritmo de Web Scraping y Análisis</span>
+        <span class="lang-en">Web Scraping & Data Analysis Algorithm</span>
+      </h3>
+      <p>
+        <span class="lang-es">
+          Desarrollé un algoritmo para comparar precios usando web scraping con la API de Mercado Libre y analicé datos SQL con Python y la API de ChatGPT.
+        </span>
+        <span class="lang-en">
+          I developed an algorithm to compare prices using web scraping with Mercado Libre's API and analyzed SQL data with Python and ChatGPT's API.
+        </span>
+      </p>
     </div>
   </div>
 </section>
 
+<!-- SECCIÓN "CONTACTO" -->
 <section id="contacto" class="contacto-section">
-  <h2>Contacto</h2>
-  <p>Explica cómo pueden comunicarse contigo.</p>
+  <h2>
+    <span class="lang-es">Contacto</span>
+    <span class="lang-en">Contact</span>
+  </h2>
+  <p>
+    <span class="lang-es">
+      ¿Tenés alguna consulta o propuesta? Mandame un email a <strong>jlarraya@fi.uba.ar</strong> o completá el formulario.
+    </span>
+    <span class="lang-en">
+      Have any questions or proposals? Send me an email at <strong>jlarraya@fi.uba.ar</strong> or fill out the form.
+    </span>
+  </p>
   <form>
-    <label for="nombre">Nombre</label>
-    <input type="text" id="nombre" placeholder="Tu nombre">
-    <label for="email">Email</label>
-    <input type="email" id="email" placeholder="Tu correo electrónico">
-    <label for="mensaje">Mensaje</label>
-    <textarea id="mensaje" placeholder="Escribe tu mensaje"></textarea>
-    <button type="submit">Enviar</button>
+    <label for="nombre">
+      <span class="lang-es">Nombre</span>
+      <span class="lang-en">Name</span>
+    </label>
+    <input type="text" id="nombre" placeholder="">
+
+    <label for="email">
+      <span class="lang-es">Email</span>
+      <span class="lang-en">Email</span>
+    </label>
+    <input type="email" id="email" placeholder="">
+
+    <label for="mensaje">
+      <span class="lang-es">Mensaje</span>
+      <span class="lang-en">Message</span>
+    </label>
+    <textarea id="mensaje" placeholder=""></textarea>
+
+    <button type="submit">
+      <span class="lang-es">Enviar</span>
+      <span class="lang-en">Send</span>
+    </button>
   </form>
 </section>
 
+<!-- SECCIÓN "BLOG" -->
 <section id="blog" class="blog-section">
   <h2>Blog</h2>
-  <p>Aquí puedes mostrar tus últimas entradas.</p>
+  <p>
+    <span class="lang-es">
+      Próximamente compartiré ideas, proyectos y anécdotas del mundo tecnológico. ¡Está atento!
+    </span>
+    <span class="lang-en">
+      Soon I'll be sharing ideas, projects, and tech stories. Stay tuned!
+    </span>
+  </p>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer-section">
   <div class="footer-container">
+    <!-- LOGO -->
     <div class="footer-logo">
-      <img src="ruta-a-tu-logo.png" alt="Mi Logo">
+      <img src="Images/Logo.webp" alt="Mi Logo">
     </div>
+    <!-- Columnas del Footer -->
     <div class="footer-links-grid">
       <div class="footer-column">
-        <h3>About</h3>
+        <h3>
+          <span class="lang-es">Sobre mí</span>
+          <span class="lang-en">About Me</span>
+        </h3>
         <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li>
+            <span class="lang-es">Estudiante de Ingeniería Electrónica</span>
+            <span class="lang-en">Electronic Engineering Student</span>
+          </li>
+          <li>
+            <span class="lang-es">Recoleta, Buenos Aires</span>
+            <span class="lang-en">Recoleta, Buenos Aires</span>
+          </li>
+          <li>Email: jlarraya@fi.uba.ar</li>
         </ul>
       </div>
       <div class="footer-column">
-        <h3>Shop</h3>
+        <h3>
+          <span class="lang-es">Educación</span>
+          <span class="lang-en">Education</span>
+        </h3>
         <ul>
-          <li><a href="#">Coffee</a></li>
-          <li><a href="#">Merch</a></li>
-          <li><a href="#">Mugs</a></li>
-          <li><a href="#">Men's Apparel</a></li>
-          <li><a href="#">Kids & Youth Apparel</a></li>
+          <li>
+            <span class="lang-es">FIUBA - Ingeniería Electrónica (2018 - Presente)</span>
+            <span class="lang-en">FIUBA - Electronic Engineering (2018 - Present)</span>
+          </li>
+          <li>
+            <span class="lang-es">Instituto José Manuel Estrada - Bachiller (2012 - 2017)</span>
+            <span class="lang-en">Instituto José Manuel Estrada - High School Diploma (2012 - 2017)</span>
+          </li>
         </ul>
       </div>
       <div class="footer-column">
-        <h3>Courses</h3>
+        <h3>
+          <span class="lang-es">Experiencia</span>
+          <span class="lang-en">Experience</span>
+        </h3>
         <ul>
-          <li><a href="#">Explore Academy</a></li>
+          <li>
+            <span class="lang-es">Pasante en Edelflex (Sep 2023 - Presente)</span>
+            <span class="lang-en">Intern at Edelflex (Sep 2023 - Present)</span>
+          </li>
+          <li>
+            <span class="lang-es">Electricidad y Automatización</span>
+            <span class="lang-en">Electricity and Automation</span>
+          </li>
         </ul>
       </div>
       <div class="footer-column">
-        <h3>Become Better at I.T.</h3>
-        <p>Get a career in I.T. with courses de tu marca.</p>
-        <a class="start-learning-btn" href="#">Start Learning →</a>
+        <h3>
+          <span class="lang-es">Proyectos</span>
+          <span class="lang-en">Projects</span>
+        </h3>
+        <p>
+          <span class="lang-es">
+            Fuente de alimentación conmutada 90% eficiencia; Algoritmo de web scraping y análisis de datos con ChatGPT.
+          </span>
+          <span class="lang-en">
+            90% efficient switching power supply; Web scraping and data analysis algorithm using ChatGPT.
+          </span>
+        </p>
+        <a class="start-learning-btn" href="#">
+          <span class="lang-es">Ver más →</span>
+          <span class="lang-en">See more →</span>
+        </a>
       </div>
       <div class="footer-column">
-        <h3>Social Networks</h3>
+        <h3>
+          <span class="lang-es">Social Networks</span>
+          <span class="lang-en">Social Networks</span>
+        </h3>
         <ul>
-          <li><a href="#">YouTube</a></li>
-          <li><a href="#">Twitter</a></li>
-          <li><a href="#">Instagram</a></li>
+          <li>
+            <span class="lang-es">LinkedIn: juan-cruz-larraya</span>
+            <span class="lang-en">LinkedIn: juan-cruz-larraya</span>
+          </li>
+          <li>
+            <span class="lang-es">GitHub: juan-LARRAYA</span>
+            <span class="lang-en">GitHub: juan-LARRAYA</span>
+          </li>
         </ul>
       </div>
     </div>
   </div>
+
   <div class="footer-divider"></div>
+
   <div class="footer-bottom">
     <ul class="legal-links">
-      <li><a href="#">Privacy Policy</a></li>
-      <li><a href="#">Terms and Conditions</a></li>
+      <li>
+        <span class="lang-es">CV actualizado: August 22, 2024</span>
+        <span class="lang-en">CV updated: August 22, 2024</span>
+      </li>
     </ul>
-    <p class="copy">© 2025 MiSitio. All rights reserved.</p>
+    <p class="copy">
+      <span class="lang-es">© 2024 Juan Cruz Larraya. Algunos derechos reservados.</span>
+      <span class="lang-en">© 2024 Juan Cruz Larraya. some rights reserved.</span>
+    </p>
   </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>

@@ -22,6 +22,24 @@ img {
   display: block;
 }
 
+/* Selector de idioma mínimo (JS se encargará de ocultar .lang-en al inicio) */
+.language-selector button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 0.5vw;
+}
+.language-selector button.active {
+  outline: 0.5vw solid #F2D478;
+}
+
+/* Hacer circular el logo (header y footer) */
+.logo img,
+.footer-logo img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 /* ------------------------------------------------
    3) NAVBAR / HEADER
 ------------------------------------------------- */
@@ -29,19 +47,20 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 2vw;
   background-color: #1C1B18;
-  border-bottom: 1px solid #3A372F;
+  border-bottom: 0.2vw solid #3A372F;
 }
 
+/* Reducción del tamaño del logo al 50%: de 20vw a 10vw */
 .logo img {
-  height: 50px; /* Ajusta según tu logo */
+  width: 10vw;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 2vw;
 }
 
 .nav-links li a {
@@ -51,7 +70,7 @@ img {
 }
 
 .nav-links li a:hover {
-  color: #F2D478; /* Resalta en amarillo claro */
+  color: #F2D478;
 }
 
 /* ------------------------------------------------
@@ -63,95 +82,100 @@ img {
   align-items: center;
   justify-content: center;
   height: 60vh;
-  background-color: #2E2A24; /* Un tono distinto para contraste */
+  background-color: #2E2A24;
   text-align: center;
-  padding: 40px;
+  padding: 4vw;
 }
 
 .hero-section h1 {
-  font-size: 4rem;
-  color: #D3B56C; /* Título en tono dorado/marrón */
-  margin-bottom: 20px;
+  font-size: calc(2rem + 2vw);
+  color: #D3B56C;
+  margin-bottom: 2vw;
 }
 
 .hero-section p {
-  font-size: 1.2rem;
-  max-width: 600px;
+  font-size: calc(1rem + 1vw);
+  max-width: 90%;
   line-height: 1.5;
 }
 
 /* ------------------------------------------------
    5) SECCIÓN SOBRE MÍ
 ------------------------------------------------- */
+
 .sobre-mi-section {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row; /* Forzamos la disposición horizontal */
   align-items: center;
-  padding: 40px 20px;
-  gap: 20px;
+  padding: 4vw 2vw;
+  gap: 2vw;
   background-color: #1C1B18;
 }
 
-.sobre-mi-section .foto {
-  flex: 1 1 200px;
+.sobre-mi-section .foto img{
+  flex: 0 0 25vw;  /* Fija el ancho de la foto */
+  border-radius: 5vw;
   text-align: center;
+  object-fit: cover;
+  width: 80vw;
 }
 
+
 .sobre-mi-section .texto {
-  flex: 2 1 300px;
+  flex: 1 1 auto;
 }
 
 .sobre-mi-section h2 {
   color: #D3B56C;
-  margin-bottom: 10px;
+  margin-bottom: 1vw;
 }
 
 /* ------------------------------------------------
    6) SECCIÓN EXPERIENCIA
 ------------------------------------------------- */
 .experiencia-section {
-  padding: 40px 20px;
+  padding: 4vw 2vw;
   background-color: #2E2A24;
 }
 
 .experiencia-section h2 {
   color: #D3B56C;
-  margin-bottom: 20px;
+  margin-bottom: 2vw;
 }
 
 /* ------------------------------------------------
    7) SECCIÓN PROYECTOS
 ------------------------------------------------- */
 .proyectos-section {
-  padding: 40px 20px;
+  padding: 4vw 2vw;
   background-color: #1C1B18;
 }
 
 .proyectos-section h2 {
   color: #D3B56C;
-  margin-bottom: 20px;
+  margin-bottom: 2vw;
 }
 
 .proyectos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+  gap: 2vw;
 }
 
 .proyecto {
   background-color: #2E2A24;
-  padding: 20px;
-  border-radius: 5px;
+  padding: 2vw;
+  border-radius: 0.5vw;
   transition: transform 0.3s;
 }
 
 .proyecto:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 10px #F2D478; /* Sutil brillo en amarillo */
+  transform: translateY(-1vw);
+  box-shadow: 0 0 1vw #F2D478;
 }
 
 .proyecto h3 {
-  margin-bottom: 10px;
+  margin-bottom: 1vw;
   color: #D3B56C;
 }
 
@@ -159,21 +183,21 @@ img {
    8) SECCIÓN CONTACTO
 ------------------------------------------------- */
 .contacto-section {
-  padding: 40px 20px;
+  padding: 4vw 2vw;
   background-color: #2E2A24;
 }
 
 .contacto-section h2 {
   color: #D3B56C;
-  margin-bottom: 20px;
+  margin-bottom: 2vw;
 }
 
 .contacto-section form {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
-  margin-top: 20px;
-  gap: 15px;
+  width: 100%;
+  margin-top: 2vw;
+  gap: 1.5vw;
 }
 
 .contacto-section label {
@@ -182,19 +206,19 @@ img {
 
 .contacto-section input,
 .contacto-section textarea {
-  padding: 10px;
-  border: 1px solid #3A372F;
+  padding: 1vw;
+  border: 0.2vw solid #3A372F;
   background-color: #1C1B18;
   color: #E2E0D2;
-  border-radius: 3px;
+  border-radius: 0.3vw;
 }
 
 .contacto-section button {
   background-color: #7A6F4F;
   color: #E2E0D2;
-  padding: 10px;
+  padding: 1vw;
   border: none;
-  border-radius: 3px;
+  border-radius: 0.3vw;
   cursor: pointer;
 }
 
@@ -206,13 +230,13 @@ img {
    9) SECCIÓN BLOG
 ------------------------------------------------- */
 .blog-section {
-  padding: 40px 20px;
+  padding: 4vw 2vw;
   background-color: #1C1B18;
 }
 
 .blog-section h2 {
   color: #D3B56C;
-  margin-bottom: 20px;
+  margin-bottom: 2vw;
 }
 
 /* ------------------------------------------------
@@ -221,46 +245,45 @@ img {
 .footer-section {
   background-color: #1C1B18;
   color: #E2E0D2;
-  padding: 40px 20px;
+  padding: 4vw 2vw;
   position: relative;
-  border-top: 2px solid #3A372F; /* Borde superior */
-  box-shadow: 0 -5px 0 #2E2A24 inset; /* Sombra interna */
+  border-top: 0.5vw solid #3A372F;
+  box-shadow: 0 -1vw 0 #2E2A24 inset;
 }
 
-/* Contenedor principal para logo y columnas */
 .footer-container {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 40px;
-  max-width: 1200px;
+  gap: 2vw;
+  width: 100%;
   margin: 0 auto;
 }
 
+/* Reducción del logo del footer: de 30vw a 15vw */
 .footer-logo {
-  flex: 1 1 150px;
-  min-width: 150px;
+  flex: 1 1 auto;
+  width: 15vw;
 }
 
 .footer-logo img {
-  width: 120px;
+  width: 15vw;
   height: auto;
 }
 
-/* Grid para las columnas de enlaces */
 .footer-links-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 40px;
-  flex: 3 1 600px;
+  grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
+  gap: 2vw;
+  flex: 3 1 auto;
 }
 
 .footer-column h3 {
   color: #D3B56C;
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+  font-size: calc(0.8rem + 0.5vw);
+  margin-bottom: 1vw;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.1vw;
 }
 
 .footer-column ul {
@@ -270,7 +293,7 @@ img {
 }
 
 .footer-column li {
-  margin-bottom: 5px;
+  margin-bottom: 0.5vw;
 }
 
 .footer-column a {
@@ -283,15 +306,14 @@ img {
   color: #F2D478;
 }
 
-/* Botón "Start Learning" */
 .start-learning-btn {
   display: inline-block;
-  margin-top: 10px;
-  padding: 8px 16px;
+  margin-top: 1vw;
+  padding: 1vw 2vw;
   background-color: #7A6F4F;
   color: #E2E0D2;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 0.5vw;
   transition: background-color 0.3s;
 }
 
@@ -299,34 +321,32 @@ img {
   background-color: #9B8A60;
 }
 
-/* Separador / línea */
 .footer-divider {
   width: 100%;
-  height: 1px;
-  margin: 40px auto;
+  height: 0.3vw;
+  margin: 4vw auto;
   background-color: #3A372F;
 }
 
-/* Parte inferior: links legales y copyright */
 .footer-bottom {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 }
 
 .legal-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 2vw;
 }
 
 .legal-links li a {
   color: #E2E0D2;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: calc(0.7rem + 0.3vw);
 }
 
 .legal-links li a:hover {
@@ -334,8 +354,8 @@ img {
 }
 
 .copy {
-  font-size: 0.8rem;
+  font-size: calc(0.7rem + 0.3vw);
   color: #A09E8F;
-  margin-top: 10px;
+  margin-top: 1vw;
   text-align: right;
 }
