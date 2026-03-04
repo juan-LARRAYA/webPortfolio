@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-dark: #080808;
+  --bg-medium: #111111;
+  --border-color: #1A1A1A;
+  --text-primary: #F2F0E9;
+  --accent-amber: #F5A623;
+  --accent-cyan: #00D4FF;
+  --accent-muted: #555555;
+  /* legacy aliases */
+  --accent-gold: #F5A623;
+  --accent-yellow: #00D4FF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* PCB grid background pattern */
+.pcb-grid {
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Glow utilities */
+.glow-amber {
+  text-shadow: 0 0 20px rgba(245, 166, 35, 0.5), 0 0 40px rgba(245, 166, 35, 0.2);
+}
+.glow-cyan {
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.2);
+}
+.box-glow-amber {
+  box-shadow: 0 0 20px rgba(245, 166, 35, 0.15), inset 0 0 20px rgba(245, 166, 35, 0.03);
+}
+.box-glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15), inset 0 0 20px rgba(0, 212, 255, 0.03);
+}
+
+/* Hide default cursor on interactive elements */
+a, button, input, textarea {
+  cursor: none;
+}
+
+/* Remove browser default underlines */
+a {
+  text-decoration: none;
+}
+
+/* Selection styles */
+::selection {
+  background-color: var(--accent-amber);
+  color: var(--bg-dark);
+}
+
+/* Smooth transitions */
+@layer utilities {
+  .text-split {
+    display: inline-block;
+    white-space: pre;
+  }
+}
+
+/* Film grain overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: -200%;
+  z-index: 9998;
+  pointer-events: none;
+  width: 400%;
+  height: 400%;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 6s steps(8) infinite;
+}
+
+@keyframes grain {
+  0%   { transform: translate(0, 0); }
+  12%  { transform: translate(-4%, -6%); }
+  25%  { transform: translate(6%, 4%); }
+  37%  { transform: translate(-3%, 8%); }
+  50%  { transform: translate(8%, -3%); }
+  62%  { transform: translate(-6%, 5%); }
+  75%  { transform: translate(3%, -8%); }
+  87%  { transform: translate(-8%, 3%); }
+  100% { transform: translate(5%, -5%); }
+}
