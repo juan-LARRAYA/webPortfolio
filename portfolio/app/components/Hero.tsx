@@ -52,7 +52,7 @@ export default function Hero() {
         >
 
           <motion.a
-            href="/tools"
+            href="#proyectos"
             style={{ background: '#F5A623', color: '#080808', borderRadius: '20px', padding: '14px 32px', fontSize: '14px', fontWeight: 600, letterSpacing: '0.05em', display: 'inline-block' }}
             whileHover={{ scale: 1.04, background: '#e8971f' }}
             whileTap={{ scale: 0.97 }}

@@ -10,6 +10,7 @@
   --accent-amber: #F5A623;
   --accent-cyan: #00D4FF;
   --accent-muted: #555555;
+  --section-mx: 2rem;
   /* legacy aliases */
   --accent-gold: #F5A623;
   --accent-yellow: #00D4FF;

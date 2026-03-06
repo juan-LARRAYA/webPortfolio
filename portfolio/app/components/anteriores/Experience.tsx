@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Reveal from './ui/Reveal';
+import Reveal from '../ui/Reveal';
 
 export default function Experience() {
   const [lang, setLang] = useState<'es' | 'en'>('es');

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Reveal from './ui/Reveal';
+import Reveal from '../ui/Reveal';
 
 const TOOLS_LIST = [
   { id: '01', label: 'Conversor de Bases', desc: 'Binario · Decimal · Hexadecimal · Octal', href: '/tools/binary-hex', live: true },

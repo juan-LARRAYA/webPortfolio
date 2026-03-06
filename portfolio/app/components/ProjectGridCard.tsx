@@ -8,40 +8,52 @@ interface ProjectCardProps {
   description: string;
   href: string;
   image: string;
+  tag?: string;
+  dark?: boolean;
+  contain?: boolean;
+  imgPosition?: string;
 }
 
-export default function ProjectGridCard({ name, description, href, image }: ProjectCardProps) {
+export default function ProjectGridCard({ name, description, href, image, tag, dark = false, contain = false, imgPosition = 'top' }: ProjectCardProps) {
   const isExternal = href.startsWith('http');
+  const bg = dark ? '#111111' : 'var(--bg-medium)';
+  const textColor = dark ? '#ffffff' : 'var(--text-primary)';
 
   return (
     <motion.a
       href={href}
       target={isExternal ? '_blank' : undefined}
       rel={isExternal ? 'noopener noreferrer' : undefined}
-      className="group flex flex-col rounded-2xl border overflow-hidden transition-colors duration-300"
-      style={{ borderColor: 'var(--border-color)', background: 'var(--bg-medium)' }}
-      whileHover={{ borderColor: '#333333', y: -6 }}
+      style={{ background: bg, minHeight: '420px', borderRadius: '24px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
+      whileHover={{ y: -6, scale: 1.01 }}
       transition={{ duration: 0.25, ease: [0.33, 1, 0.68, 1] }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
     >
-      {/* Image */}
-      <div className="relative w-full aspect-video">
-        <Image src={image} alt={name} fill className="object-cover" />
+      {/* Text block */}
+      <div style={{ padding: '1.6rem 1.6rem 1rem' }}>
+        {tag && (
+          <p style={{ color: 'var(--accent-amber)', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.6rem' }}>
+            {tag}
+          </p>
+        )}
+        <h3 style={{ fontSize: '1.8rem', fontWeight: 700, color: textColor, lineHeight: 1.15, marginBottom: '0.4rem' }}>
+          {name}
+        </h3>
+        <p style={{ fontSize: '1rem', fontWeight: 500, color: dark ? 'rgba(255,255,255,0.6)' : 'var(--accent-muted)', lineHeight: 1.5 }}>
+          {description}
+        </p>
       </div>
 
-      {/* Content */}
-      <div className="p-5">
-        <div className="flex items-start justify-between">
-          <h3 className="text-base font-semibold" style={{ color: 'var(--text-primary)' }}>{name}</h3>
-          <motion.span
-            className="text-lg shrink-0 ml-3"
-            style={{ color: 'var(--accent-cyan)' }}
-            variants={{ hover: { x: 3, y: -3 } }}
-          >↗</motion.span>
-        </div>
-        <p className="text-sm leading-relaxed mt-1" style={{ color: 'var(--accent-muted)' }}>{description}</p>
+      {/* Image fills bottom */}
+      <div style={{ position: 'relative', flex: 1, minHeight: '220px' }}>
+        <Image
+          src={image}
+          alt={name}
+          fill
+          style={{ objectFit: contain ? 'contain' : 'cover', objectPosition: imgPosition, padding: contain ? '1rem' : '0' }}
+        />
       </div>
     </motion.a>
   );
