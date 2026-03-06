@@ -10,14 +10,19 @@ import { useState } from 'react';
 export default function ExperimentalCursor() {
   const [state, setState] = useState<CursorState>('default');
   const [visible, setVisible] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    setIsTouchDevice(window.matchMedia('(pointer: coarse)').matches);
+  }, []);
 
   // Exact position (no lag) — for the small dot
   const dotX = useMotionValue(0);
   const dotY = useMotionValue(0);
 
   // Spring position (lagged) — for the large circle
-  const circleX = useSpring(dotX, { damping: 20, stiffness: 150, mass: 0.6 });
-  const circleY = useSpring(dotY, { damping: 20, stiffness: 150, mass: 0.6 });
+  const circleX = useSpring(dotX, { damping: 32, stiffness: 100, mass: 1 });
+  const circleY = useSpring(dotY, { damping: 32, stiffness: 100, mass: 1 });
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -105,6 +110,8 @@ export default function ExperimentalCursor() {
     'hover-image': { width: 4, height: 4, backgroundColor: '#00D4FF' },
     dragging: { width: 10, height: 10, backgroundColor: '#F5A623' },
   };
+
+  if (isTouchDevice) return null;
 
   return (
     <>
