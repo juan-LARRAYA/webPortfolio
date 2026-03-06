@@ -5,10 +5,17 @@ import { LangProvider } from "@/lib/i18n/LangContext";
 
 export const metadata: Metadata = {
   icons: {
-    icon: '/favicon.webp',
-    apple: '/favicon.webp',
+    icon: [
+      { url: '/favicon/favicon.ico' },
+      { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/favicon/apple-touch-icon.png',
+    other: [
+      { rel: 'manifest', url: '/favicon/site.webmanifest' },
+    ],
   },
-  title: "Juan Cruz Larraya — Ingeniería & Herramientas",
+  title: "Juan Cruz Larraya - developer",
   description: "Ingeniero Electrónico (FIUBA). Automatización industrial, desarrollo web y herramientas interactivas de electrónica y programación.",
   keywords: ["ingeniería electrónica", "automatización", "herramientas online", "conversor binario", "PLC", "FIUBA", "portfolio"],
   authors: [{ name: "Juan Cruz Larraya" }],
