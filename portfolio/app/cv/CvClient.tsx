@@ -1,10 +1,17 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLang } from '@/lib/i18n/LangContext';
 
 export default function CvClient() {
+  const { lang: siteLang } = useLang();
   const [lang, setLang] = useState<'es' | 'en'>('es');
+
+  // Sync once from site language on mount
+  useEffect(() => {
+    setLang(siteLang);
+  }, [siteLang]);
 
   const pdfPath = lang === 'es'
     ? '/cv/Juan Cruz Larraya CV-ES.pdf'

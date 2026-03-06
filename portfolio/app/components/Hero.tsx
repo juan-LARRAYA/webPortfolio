@@ -3,8 +3,10 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import DeformableHeading from './ui/DeformableHeading';
+import { useLang } from '@/lib/i18n/LangContext';
 
 export default function Hero() {
+  const { t } = useLang();
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
@@ -27,8 +29,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-        Exploring Tech, Music & Economics      
-        </motion.p>
+        {t.hero.tagline}
+</motion.p>
 
         {/* Name */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.3 }}>
@@ -58,7 +60,7 @@ export default function Hero() {
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.18 }}
           >
-            Ver Herramientas
+            {t.hero.ctaPrimary}
           </motion.a>
           <motion.a
             href="#sobre-mi"
@@ -67,7 +69,7 @@ export default function Hero() {
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.18 }}
           >
-            Conocer más
+            {t.hero.ctaSecondary}
           </motion.a>
         </motion.div>
       </motion.div>

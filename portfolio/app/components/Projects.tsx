@@ -2,14 +2,17 @@
 
 import SectionHeading from './ui/SectionHeading';
 import ProjectGridCard from './ProjectGridCard';
+import { useLang } from '@/lib/i18n/LangContext';
 
 export default function Projects() {
+  const { t } = useLang();
+
   return (
     <section id="proyectos" className="pt-40 pb-36 px-8 border-t" style={{ borderColor: 'var(--border-color)', margin: '0 var(--section-mx)' }}>
       <div className="max-w-2xl mx-auto">
 
         <div style={{ marginBottom: '5rem' }}>
-          <SectionHeading>Proyectos.</SectionHeading>
+          <SectionHeading>{t.projects.heading}</SectionHeading>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}
@@ -17,14 +20,14 @@ export default function Projects() {
           <ProjectGridCard
             name="Binexa"
             tag="Proyecto Web"
-            description="Conversor entre binario, decimal, hexadecimal y octal en tiempo real."
+            description={t.projects.binexa}
             href="https://conversor-juan.vercel.app"
             image="/images/projects/binexa.png"
           />
           <ProjectGridCard
             name="openVision"
             tag="IA · Computer Vision"
-            description="Herramienta minimalista para testear modelos de visión computacional en el browser."
+            description={t.projects.openVision}
             href="https://github.com/juan-LARRAYA/openVision"
             image="/images/projects/OpenVision Demo.png"
             dark
@@ -32,14 +35,14 @@ export default function Projects() {
           <ProjectGridCard
             name="CentralMap"
             tag="Proyecto Web"
-            description="Calcula el centro geográfico entre múltiples direcciones y lo visualiza en un mapa interactivo."
+            description={t.projects.centralMap}
             href="https://github.com/juan-LARRAYA/CentralMap"
             image="/images/projects/central_map.png"
           />
           <ProjectGridCard
             name="TPP CubeSat"
             tag="Hardware · Embebido"
-            description="Sistema de potencia eléctrica para satélites CubeSat con gestión de baterías en C/STM32."
+            description={t.projects.tpp}
             href="https://github.com/juan-LARRAYA/TPP"
             image="/images/projects/TPP Photo 1.png"
             dark
@@ -47,7 +50,7 @@ export default function Projects() {
           <ProjectGridCard
             name="Linda"
             tag="Web3 · Mobile"
-            description="App de localización en tiempo real con privacidad garantizada mediante TEE y blockchain."
+            description={t.projects.linda}
             href="https://github.com/OwnerOfJK/linda"
             image="/images/projects/linda.png"
             imgPosition="center"
@@ -55,7 +58,7 @@ export default function Projects() {
           <ProjectGridCard
             name="Votación Barrial"
             tag="Proyecto Web"
-            description="Sistema de votación para asambleas barriales con resultados en tiempo real."
+            description={t.projects.votacion}
             href="https://github.com/juan-LARRAYA/votacion-barrial"
             image="/images/projects/votacion-barrial.png"
             dark

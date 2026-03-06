@@ -3,9 +3,11 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import SectionHeading from './ui/SectionHeading';
+import { useLang } from '@/lib/i18n/LangContext';
 
 export default function About() {
-  const skills = ['Python', 'TIA Portal', 'AutoCAD', 'Power Automate', 'Next.js', 'TypeScript', 'SQL'];
+  const { t } = useLang();
+  const p = t.about.headingParts;
 
   return (
     <section id="sobre-mi" className="px-8 border-t" style={{ borderColor: 'var(--border-color)', paddingTop: '2rem', paddingBottom: '5rem', margin: '0 var(--section-mx)', borderRadius: '1rem' }}>
@@ -14,12 +16,12 @@ export default function About() {
         {/* Giant staggered heading */}
         <div style={{ marginBottom: '4rem', marginTop: '3rem' }}>
           <SectionHeading delay={0.14}>
-            Apasionado por{' '}
-            <span style={{ color: 'var(--accent-amber)' }}>herramientas</span>{' '}
-            que{' '}
-            <span style={{ color: 'var(--accent-amber)' }}>resuelven</span>{' '}
-            problemas{' '}
-            <span style={{ color: 'var(--accent-amber)' }}>reales</span>.
+            {p.prefix}{' '}
+            <span style={{ color: 'var(--accent-amber)' }}>{p.word1}</span>{' '}
+            {p.mid}{' '}
+            <span style={{ color: 'var(--accent-amber)' }}>{p.word2}</span>{' '}
+            {p.mid2}{' '}
+            <span style={{ color: 'var(--accent-amber)' }}>{p.word3}</span>.
           </SectionHeading>
         </div>
 
@@ -37,7 +39,7 @@ export default function About() {
           >
             <div className="relative overflow-hidden"
               style={{ aspectRatio: '3/4', maskImage: 'radial-gradient(ellipse 75% 75% at 50% 50%, black 30%, transparent 100%)' }}>
-              <Image src="/images/carnet_black.png" alt="Juan Cruz Larraya" fill className="object-cover" />
+              <Image src="/images/carnet_black.png" alt="Juan Cruz Larraya" fill sizes="(max-width: 768px) 200px, 330px" className="object-cover" />
             </div>
           </motion.div>
 
@@ -50,16 +52,13 @@ export default function About() {
             style={{ fontSize: '1.6rem', fontWeight: 500, color: '#f1eded' }}
           >
             <p style={{ lineHeight: '1.8', marginBottom: '1rem' }}>
-              Desde muy joven me formé sin saberlo en ingeniería, con un fuerte interés en la mecánica
-              automotriz, lo que despertó mi pasión por la física y la tecnología. Trabajé en proyectos de desarrollo
-              de software, diseño de circuitos electrónicos, sistemas de control y reconocimiento de imagenes.
+              {t.about.bio1}
             </p>
             <p style={{ lineHeight: '1.8', marginBottom: '1.1rem' }}>
-              Actualmente soy ingeniero electrónico graduado en la FIUBA y me dedico al desarrollo de software para
-              automatización industrial y sistemas IIoT.
+              {t.about.bio2}
             </p>
             <p className="font-mono tracking-wide" style={{ color: 'var(--text-primary)' }}>
-              {skills.join(' · ')}
+              {t.about.skills.join(' · ')}
             </p>
           </motion.div>
 

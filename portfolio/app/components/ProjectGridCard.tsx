@@ -52,6 +52,7 @@ export default function ProjectGridCard({ name, description, href, image, tag, d
           src={image}
           alt={name}
           fill
+          sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw"
           style={{ objectFit: contain ? 'contain' : 'cover', objectPosition: imgPosition, padding: contain ? '1rem' : '0' }}
         />
       </div>

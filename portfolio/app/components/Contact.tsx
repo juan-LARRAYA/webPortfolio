@@ -4,14 +4,17 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import SectionHeading from './ui/SectionHeading';
 import { IconLinkedIn, IconGitHub, IconMail } from './icons';
+import { useLang } from '@/lib/i18n/LangContext';
 
 export default function Contact() {
+  const { t } = useLang();
+
   return (
     <section id="contacto" className="pt-40 pb-36 px-8 border-t" style={{ borderColor: 'var(--border-color)', margin: '0 var(--section-mx)' }}>
       <div className="max-w-5xl mx-auto">
 
         <div style={{ marginBottom: '3rem', marginTop: '2rem' }}>
-          <SectionHeading align="center">¿Hablamos?</SectionHeading>
+          <SectionHeading align="center">{t.contact.heading}</SectionHeading>
         </div>
 
         <motion.div
