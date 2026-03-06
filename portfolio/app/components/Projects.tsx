@@ -12,7 +12,8 @@ export default function Projects() {
           <SectionHeading>Proyectos.</SectionHeading>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}
+          className="projects-grid">
           <ProjectGridCard
             name="Binexa"
             tag="Proyecto Web"

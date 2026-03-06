@@ -80,6 +80,47 @@ a {
   }
 }
 
+/* ── Responsive: About layout ────────────────────────────────── */
+.about-bio-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  padding-left: 2rem;
+}
+.about-photo {
+  flex-shrink: 0;
+  width: 330px;
+  padding: 1rem;
+}
+@media (max-width: 768px) {
+  .about-bio-layout {
+    flex-direction: column !important;
+    align-items: center !important;
+    padding-left: 0 !important;
+  }
+  .about-photo {
+    width: 200px !important;
+    padding: 0.5rem !important;
+  }
+}
+
+/* ── Responsive: Projects grid ───────────────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 560px) {
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* Film grain overlay */
 body::after {
   content: '';

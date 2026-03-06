@@ -24,7 +24,7 @@ export default function About() {
         </div>
 
         {/* Photo + bio */}
-        <div className="flex items-start" style={{ gap: '3rem', paddingLeft: '2rem' }}>
+        <div className="about-bio-layout" style={{ display: 'flex', alignItems: 'flex-start', gap: '3rem', paddingLeft: '2rem' }}>
 
           {/* Photo */}
           <motion.div
@@ -32,6 +32,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.08 }}
+            className="about-photo"
             style={{ flexShrink: 0, width: '330px', padding: '1rem' }}
           >
             <div className="relative overflow-hidden"
