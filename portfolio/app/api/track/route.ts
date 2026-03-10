@@ -18,11 +18,11 @@ function parseUserAgent(ua: string) {
   else if (ua.includes('Firefox/')) browser = 'Firefox';
   else if (ua.includes('Safari/') && !ua.includes('Chrome')) browser = 'Safari';
 
-  // OS
+  // OS — Android must be checked before Linux (Android UA strings contain "Linux")
   if (ua.includes('Windows')) os = 'Windows';
   else if (ua.includes('Mac OS X')) os = 'macOS';
-  else if (ua.includes('Linux')) os = 'Linux';
   else if (ua.includes('Android')) os = 'Android';
+  else if (ua.includes('Linux')) os = 'Linux';
   else if (ua.includes('iPhone') || ua.includes('iPad')) os = 'iOS';
 
   // Device type
@@ -40,7 +40,18 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
 
     const ua = req.headers.get('user-agent') || body.user_agent || '';
-    const { browser, os, device_type } = parseUserAgent(ua);
+    const parsed = parseUserAgent(ua);
+
+    // Override OS with client-provided platform when UA is ambiguous (e.g. Android UA contains "Linux")
+    let os = parsed.os;
+    const clientPlatform: string = (body.client_platform || '').toLowerCase();
+    if (clientPlatform === 'android') os = 'Android';
+    else if (clientPlatform === 'linux') os = 'Linux';
+    else if (clientPlatform === 'macintel' || clientPlatform === 'macos') os = 'macOS';
+    else if (clientPlatform === 'win32' || clientPlatform === 'windows') os = 'Windows';
+    else if (clientPlatform === 'iphone' || clientPlatform === 'ipad') os = 'iOS';
+
+    const { browser, device_type } = parsed;
 
     // Vercel provides these headers automatically in production
     const country = req.headers.get('x-vercel-ip-country') || null;
