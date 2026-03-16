@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/webp', 'image/avif'],
   },
+  async redirects() {
+    return [
+      { source: '/pid', destination: '/tools/pid', permanent: false },
+    ];
+  },
 };
 
 export default nextConfig;

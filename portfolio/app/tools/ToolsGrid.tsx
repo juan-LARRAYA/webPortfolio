@@ -17,8 +17,8 @@ const TOOLS = [
     label: 'Simulador PID',
     description: 'Ajustá Kp, Ki y Kd y visualizá la respuesta del sistema de control en tiempo real. Útil para diseño de lazos de control en automatización industrial.',
     tags: ['Control', 'Automatización', 'PLC'],
-    status: 'soon' as const,
-    href: '#',
+    status: 'live' as const,
+    href: '/tools/pid',
     color: '#F5A623',
   },
   {
