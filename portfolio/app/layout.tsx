@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ExperimentalCursor from "./components/Cursor/ExperimentalCursor";
 import { LangProvider } from "@/lib/i18n/LangContext";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   icons: {
@@ -45,6 +47,8 @@ export default function RootLayout({
           <ExperimentalCursor />
           {children}
         </LangProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
