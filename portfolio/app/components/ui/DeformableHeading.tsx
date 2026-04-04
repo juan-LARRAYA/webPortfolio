@@ -19,17 +19,33 @@ export default function DeformableHeading({ text, className = '' }: DeformableHe
 
     const chars = containerRef.current.querySelectorAll('.char');
 
-    // Mouse move effect - letters follow cursor with delay
+    // Cache positions once (recompute on resize)
+    let charPositions: { x: number; y: number }[] = [];
+    const cachePositions = () => {
+      charPositions = Array.from(chars).map((char) => {
+        const rect = (char as HTMLElement).getBoundingClientRect();
+        return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+      });
+    };
+    cachePositions();
+    window.addEventListener('resize', cachePositions);
+
+    let rafId: number;
+    let mouseX = 0;
+    let mouseY = 0;
+
     const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    };
 
+    const animate = () => {
       chars.forEach((char, index) => {
-        const rect = char.getBoundingClientRect();
-        const charX = rect.left + rect.width / 2;
-        const charY = rect.top + rect.height / 2;
+        const pos = charPositions[index];
+        if (!pos) return;
 
-        const distanceX = clientX - charX;
-        const distanceY = clientY - charY;
+        const distanceX = mouseX - pos.x;
+        const distanceY = mouseY - pos.y;
         const distance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
 
         if (distance < 200) {
@@ -38,29 +54,26 @@ export default function DeformableHeading({ text, className = '' }: DeformableHe
           const offsetY = (distanceY / distance) * strength * 20;
           const rotation = (distanceX / distance) * strength * 15;
 
-          gsap.to(char, {
-            x: offsetX,
-            y: offsetY,
-            rotation: rotation,
-            duration: 0.5,
-            ease: 'power2.out',
-          });
+          gsap.to(char, { x: offsetX, y: offsetY, rotation, duration: 0.5, ease: 'power2.out' });
         } else {
-          gsap.to(char, {
-            x: 0,
-            y: 0,
-            rotation: 0,
-            duration: 0.8,
-            ease: 'elastic.out(1, 0.3)',
-          });
+          gsap.to(char, { x: 0, y: 0, rotation: 0, duration: 0.8, ease: 'elastic.out(1, 0.3)' });
         }
       });
+      rafId = requestAnimationFrame(animate);
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    // Delay GSAP loop until Framer Motion entrance animation finishes
+    // Max FM duration: 0.7s + (nChars * 0.008s stagger) ≈ 900ms
+    const startTimeout = setTimeout(() => {
+      rafId = requestAnimationFrame(animate);
+      window.addEventListener('mousemove', handleMouseMove);
+    }, 950);
 
     return () => {
+      clearTimeout(startTimeout);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', cachePositions);
+      cancelAnimationFrame(rafId);
     };
   }, []);
 
@@ -79,8 +92,8 @@ export default function DeformableHeading({ text, className = '' }: DeformableHe
           }}
           whileHover={{
             scale: 1.3,
-            color: '#F2D478',
-            textShadow: '0 0 20px rgba(242, 212, 120, 0.6)',
+            color: 'var(--accent-amber-light)',
+            textShadow: '0 0 20px rgba(var(--accent-amber-light-rgb), 0.6)',
             transition: { duration: 0.2 },
           }}
           style={{

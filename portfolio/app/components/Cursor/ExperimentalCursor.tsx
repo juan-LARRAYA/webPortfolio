@@ -124,7 +124,7 @@ export default function ExperimentalCursor() {
           translateX: '-50%',
           translateY: '-50%',
           opacity: visible ? 1 : 0,
-          backdropFilter: 'blur(0.5px)',
+          backdropFilter: 'none',
         }}
         animate={circleVariants[state]}
         initial={circleVariants.default}

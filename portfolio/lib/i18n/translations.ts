@@ -29,6 +29,7 @@ export const translations = {
       tpp: 'Sistema de potencia eléctrica para satélites CubeSat con gestión de baterías en C/STM32.',
       linda: 'App de localización en tiempo real con privacidad garantizada mediante TEE y blockchain.',
       votacion: 'Sistema de votación para asambleas barriales con resultados en tiempo real.',
+      voice2text: 'Transcripción de voz a texto en tiempo real usando modelos de IA en el browser.',
     },
     contact: {
       heading: '¿Hablamos?',
@@ -71,6 +72,7 @@ export const translations = {
       tpp: 'Electrical power system for CubeSat satellites with battery management in C/STM32.',
       linda: 'Real-time location app with privacy guaranteed by TEE and blockchain.',
       votacion: 'Voting system for neighborhood assemblies with real-time results.',
+      voice2text: 'Real-time speech-to-text transcription using AI models in the browser.',
     },
     contact: {
       heading: "Let's talk?",

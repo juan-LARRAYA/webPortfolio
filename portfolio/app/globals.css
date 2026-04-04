@@ -3,17 +3,79 @@
 @tailwind utilities;
 
 :root {
+  /* ── Backgrounds ── */
   --bg-dark: #080808;
+  --bg-dark-rgb: 8, 8, 8;
   --bg-medium: #111111;
   --border-color: #1A1A1A;
+  --border-color-subtle: #2A2A2A;
+
+  /* ── Text ── */
   --text-primary: #F2F0E9;
-  --accent-amber: #F5A623;
-  --accent-cyan: #00D4FF;
+  --text-primary-rgb: 242, 240, 233;
+  --text-subtle: #888888;
   --accent-muted: #555555;
+  --accent-muted-rgb: 85, 85, 85;
+
+  /* ── Accent amber ── */
+  --accent-amber: #F5A623;
+  --accent-amber-rgb: 245, 166, 35;
+  --accent-amber-hover: #e8971f;
+  --accent-amber-light: #F2D478;
+  --accent-amber-light-rgb: 242, 212, 120;
+
+  /* ── Accent cyan ── */
+  --accent-cyan: #00D4FF;
+  --accent-cyan-rgb: 0, 212, 255;
+
+  /* ── Semantic ── */
+  --accent-red: #EF4444;
+  --accent-red-rgb: 239, 68, 68;
+  --accent-green: #4ADE80;
+  --accent-green-rgb: 74, 222, 128;
+  --accent-purple: #A78BFA;
+  --accent-purple-rgb: 167, 139, 250;
+  --accent-linkedin: #0077B5;
+  --accent-linkedin-rgb: 0, 119, 181;
+
+  /* ── Chart palette ── */
+  --chart-1: #F5A623;
+  --chart-2: #E8734A;
+  --chart-3: #C0392B;
+  --chart-4: #8E44AD;
+  --chart-5: #2980B9;
+  --chart-6: #27AE60;
+  --chart-7: #1ABC9C;
+  --chart-8: #F39C12;
+
   --section-mx: 2rem;
-  /* legacy aliases */
-  --accent-gold: #F5A623;
-  --accent-yellow: #00D4FF;
+
+  /* ── Legacy aliases ── */
+  --accent-gold: var(--accent-amber);
+  --accent-yellow: var(--accent-cyan);
+}
+
+/* ── Light theme ── */
+[data-theme="light"] {
+  --bg-dark: #F7F7F2;
+  --bg-dark-rgb: 247, 247, 242;
+  --bg-medium: #EFEFEA;
+  --border-color: #D8D8D2;
+  --border-color-subtle: #C8C8C2;
+
+  --text-primary: #1A1A1A;
+  --text-primary-rgb: 26, 26, 26;
+  --text-subtle: #888888;
+  --accent-muted: #777777;
+
+  --accent-amber: #D4850A;
+  --accent-amber-rgb: 212, 133, 10;
+  --accent-amber-hover: #B87008;
+  --accent-amber-light: #C89010;
+  --accent-amber-light-rgb: 200, 144, 16;
+
+  --accent-cyan: #0099BB;
+  --accent-cyan-rgb: 0, 153, 187;
 }
 
 * {
@@ -44,16 +106,16 @@ body {
 
 /* Glow utilities */
 .glow-amber {
-  text-shadow: 0 0 20px rgba(245, 166, 35, 0.5), 0 0 40px rgba(245, 166, 35, 0.2);
+  text-shadow: 0 0 20px rgba(var(--accent-amber-rgb), 0.5), 0 0 40px rgba(var(--accent-amber-rgb), 0.2);
 }
 .glow-cyan {
-  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.2);
+  text-shadow: 0 0 20px rgba(var(--accent-cyan-rgb), 0.5), 0 0 40px rgba(var(--accent-cyan-rgb), 0.2);
 }
 .box-glow-amber {
-  box-shadow: 0 0 20px rgba(245, 166, 35, 0.15), inset 0 0 20px rgba(245, 166, 35, 0.03);
+  box-shadow: 0 0 20px rgba(var(--accent-amber-rgb), 0.15), inset 0 0 20px rgba(var(--accent-amber-rgb), 0.03);
 }
 .box-glow-cyan {
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15), inset 0 0 20px rgba(0, 212, 255, 0.03);
+  box-shadow: 0 0 20px rgba(var(--accent-cyan-rgb), 0.15), inset 0 0 20px rgba(var(--accent-cyan-rgb), 0.03);
 }
 
 /* Hide default cursor on interactive elements */
@@ -99,7 +161,7 @@ a {
     padding-left: 0 !important;
   }
   .about-photo {
-    width: 200px !important;
+    width: 300px !important;
     padding: 0.5rem !important;
   }
 }

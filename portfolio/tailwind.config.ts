@@ -10,19 +10,19 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          dark: '#080808',
-          medium: '#111111',
-          border: '#1A1A1A',
+          dark: 'var(--bg-dark)',
+          medium: 'var(--bg-medium)',
+          border: 'var(--border-color)',
         },
         accent: {
-          amber: '#F5A623',
-          cyan: '#00D4FF',
-          text: '#F2F0E9',
-          muted: '#555555',
-          // keep legacy aliases for components not yet migrated
-          gold: '#F5A623',
-          yellow: '#00D4FF',
-          light: '#F2F0E9',
+          amber: 'var(--accent-amber)',
+          cyan: 'var(--accent-cyan)',
+          text: 'var(--text-primary)',
+          muted: 'var(--accent-muted)',
+          // legacy aliases
+          gold: 'var(--accent-amber)',
+          yellow: 'var(--accent-cyan)',
+          light: 'var(--text-primary)',
         },
       },
       fontFamily: {

@@ -119,10 +119,10 @@ function PieLegend({ data }: { data: [string, number][] }) {
               display: 'inline-block', width: '10px', height: '10px',
               borderRadius: '2px', background: PIE_COLORS[i % PIE_COLORS.length], flexShrink: 0,
             }} />
-            <span style={{ color: '#aaa', fontSize: '0.72rem', fontFamily: 'monospace', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+            <span style={{ color: 'var(--text-subtle)', fontSize: '0.72rem', fontFamily: 'monospace', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               {label}
             </span>
-            <span style={{ color: '#F5A623', fontSize: '0.72rem', fontFamily: 'monospace', marginLeft: 'auto', flexShrink: 0 }}>
+            <span style={{ color: 'var(--accent-amber)', fontSize: '0.72rem', fontFamily: 'monospace', marginLeft: 'auto', flexShrink: 0 }}>
               {pct}%
             </span>
           </div>
@@ -180,16 +180,16 @@ export default async function MetricsPage() {
   const topCountryPie = topN(countBy(historical, 'country'), 8);
   const topOSPie = topN(countBy(historical, 'os'), 8);
 
-  const card = { background: '#111', border: '1px solid #1A1A1A', borderRadius: '12px', padding: '1.5rem' };
-  const label = { color: '#555', fontSize: '0.75rem', fontFamily: 'monospace', marginBottom: '0.75rem', textTransform: 'uppercase' as const, letterSpacing: '0.1em' };
-  const value = { color: '#F2F0E9', fontSize: '2.5rem', fontWeight: 700, fontFamily: 'monospace' };
+  const card = { background: 'var(--bg-medium)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '1.5rem' };
+  const label = { color: 'var(--accent-muted)', fontSize: '0.75rem', fontFamily: 'monospace', marginBottom: '0.75rem', textTransform: 'uppercase' as const, letterSpacing: '0.1em' };
+  const value = { color: 'var(--text-primary)', fontSize: '2.5rem', fontWeight: 700, fontFamily: 'monospace' };
 
   return (
-    <main style={{ minHeight: '100vh', background: '#080808', color: '#F2F0E9', padding: '3rem 2rem', fontFamily: 'system-ui, sans-serif' }}>
+    <main style={{ minHeight: '100vh', background: 'var(--bg-dark)', color: 'var(--text-primary)', padding: '3rem 2rem', fontFamily: 'system-ui, sans-serif' }}>
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
 
         <h1 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '0.5rem' }}>Métricas</h1>
-        <p style={{ color: '#555', fontFamily: 'monospace', fontSize: '0.8rem', marginBottom: '3rem' }}>
+        <p style={{ color: 'var(--accent-muted)', fontFamily: 'monospace', fontSize: '0.8rem', marginBottom: '3rem' }}>
           {totalAllTime} visitas registradas (histórico completo)
         </p>
 
@@ -225,8 +225,8 @@ export default async function MetricsPage() {
               <p style={label}>{title}</p>
               {data.map(([k, v]) => (
                 <div key={k} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
-                  <span style={{ color: '#aaa', fontSize: '0.875rem' }}>{k}</span>
-                  <span style={{ color: '#F5A623', fontWeight: 600, fontFamily: 'monospace' }}>{v}</span>
+                  <span style={{ color: 'var(--text-subtle)', fontSize: '0.875rem' }}>{k}</span>
+                  <span style={{ color: 'var(--accent-amber)', fontWeight: 600, fontFamily: 'monospace' }}>{v}</span>
                 </div>
               ))}
             </div>
@@ -235,7 +235,7 @@ export default async function MetricsPage() {
 
         {/* Histórico - Gráficos de torta */}
         <div style={{ marginBottom: '2rem' }}>
-          <p style={{ color: '#555', fontFamily: 'monospace', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem' }}>
+          <p style={{ color: 'var(--accent-muted)', fontFamily: 'monospace', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem' }}>
             Histórico
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
@@ -265,7 +265,7 @@ export default async function MetricsPage() {
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', fontFamily: 'monospace' }}>
               <thead>
-                <tr style={{ color: '#555', textAlign: 'left' }}>
+                <tr style={{ color: 'var(--accent-muted)', textAlign: 'left' }}>
                   {['Fecha', 'País', 'Browser', 'OS', 'Dispositivo', 'Idioma', 'Pantalla', 'Ruta'].map(h => (
                     <th key={h} style={{ padding: '0.4rem 0.75rem', whiteSpace: 'nowrap', fontWeight: 400 }}>{h}</th>
                   ))}
@@ -273,23 +273,23 @@ export default async function MetricsPage() {
               </thead>
               <tbody>
                 {recent.map((v) => (
-                  <tr key={v.id} style={{ borderTop: '1px solid #1A1A1A' }}>
-                    <td style={{ padding: '0.5rem 0.75rem', color: '#666', whiteSpace: 'nowrap' }}>
+                  <tr key={v.id} style={{ borderTop: '1px solid var(--border-color)' }}>
+                    <td style={{ padding: '0.5rem 0.75rem', color: 'var(--text-subtle)', whiteSpace: 'nowrap' }}>
                       {new Date(v.created_at).toLocaleString('es-AR', {
                         dateStyle: 'short',
                         timeStyle: 'short',
                         timeZone: 'America/Argentina/Buenos_Aires',
                       })}
                     </td>
-                    <td style={{ padding: '0.5rem 0.75rem', color: '#F2F0E9' }}>{v.country ?? '—'}</td>
-                    <td style={{ padding: '0.5rem 0.75rem', color: '#F2F0E9' }}>{v.browser ?? '—'}</td>
-                    <td style={{ padding: '0.5rem 0.75rem', color: '#aaa' }}>{v.os ?? '—'}</td>
-                    <td style={{ padding: '0.5rem 0.75rem', color: '#aaa' }}>{v.device_type ?? '—'}</td>
-                    <td style={{ padding: '0.5rem 0.75rem', color: '#aaa' }}>{v.language ?? '—'}</td>
-                    <td style={{ padding: '0.5rem 0.75rem', color: '#aaa', whiteSpace: 'nowrap' }}>
+                    <td style={{ padding: '0.5rem 0.75rem', color: 'var(--text-primary)' }}>{v.country ?? '—'}</td>
+                    <td style={{ padding: '0.5rem 0.75rem', color: 'var(--text-primary)' }}>{v.browser ?? '—'}</td>
+                    <td style={{ padding: '0.5rem 0.75rem', color: 'var(--text-subtle)' }}>{v.os ?? '—'}</td>
+                    <td style={{ padding: '0.5rem 0.75rem', color: 'var(--text-subtle)' }}>{v.device_type ?? '—'}</td>
+                    <td style={{ padding: '0.5rem 0.75rem', color: 'var(--text-subtle)' }}>{v.language ?? '—'}</td>
+                    <td style={{ padding: '0.5rem 0.75rem', color: 'var(--text-subtle)', whiteSpace: 'nowrap' }}>
                       {v.screen_width && v.screen_height ? `${v.screen_width}×${v.screen_height}` : '—'}
                     </td>
-                    <td style={{ padding: '0.5rem 0.75rem', color: '#F5A623' }}>{v.page_path ?? '—'}</td>
+                    <td style={{ padding: '0.5rem 0.75rem', color: 'var(--accent-amber)' }}>{v.page_path ?? '—'}</td>
                   </tr>
                 ))}
               </tbody>

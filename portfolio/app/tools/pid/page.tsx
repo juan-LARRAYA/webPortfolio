@@ -12,9 +12,9 @@ const HISTORY_S = 20;
 const HISTORY_N = Math.round(HISTORY_S / DT);
 
 const C = {
-  bg: '#080808', bg2: '#111111', border: '#1A1A1A',
-  text: '#F2F0E9', muted: '#555555',
-  amber: '#F5A623', cyan: '#00D4FF', green: '#4ADE80', purple: '#A78BFA',
+  bg: 'var(--bg-dark)', bg2: 'var(--bg-medium)', border: 'var(--border-color)',
+  text: 'var(--text-primary)', muted: 'var(--accent-muted)',
+  amber: 'var(--accent-amber)', cyan: 'var(--accent-cyan)', green: 'var(--accent-green)', purple: 'var(--accent-purple)',
 };
 
 interface Params {
@@ -86,24 +86,24 @@ function Chart({ history }: { history: HistoryPoint[] }) {
     <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: 'block' }}>
       {[0, 25, 50, 75, 100].map(v => (
         <g key={v}>
-          <line x1={PAD.left} y1={yS(v)} x2={PAD.left + cw} y2={yS(v)} stroke="#1A1A1A" strokeWidth="1" />
-          <text x={PAD.left - 5} y={yS(v) + 4} textAnchor="end" fill="#888" fontSize="9" fontFamily="monospace">{v}</text>
+          <line x1={PAD.left} y1={yS(v)} x2={PAD.left + cw} y2={yS(v)} stroke="var(--border-color)" strokeWidth="1" />
+          <text x={PAD.left - 5} y={yS(v) + 4} textAnchor="end" fill="var(--text-subtle)" fontSize="9" fontFamily="monospace">{v}</text>
         </g>
       ))}
       {[0, 5, 10, 15, 20].map(offset => (
         <text key={offset} x={xS(Math.max(tStart, tEnd - HISTORY_S + offset))} y={H - 5}
-          textAnchor="middle" fill="#888" fontSize="9" fontFamily="monospace">
+          textAnchor="middle" fill="var(--text-subtle)" fontSize="9" fontFamily="monospace">
           {(tEnd - HISTORY_S + offset).toFixed(0)}s
         </text>
       ))}
-      <line x1={PAD.left} y1={PAD.top} x2={PAD.left} y2={PAD.top + ch} stroke="#2A2A2A" strokeWidth="1" />
-      <line x1={PAD.left} y1={PAD.top + ch} x2={PAD.left + cw} y2={PAD.top + ch} stroke="#2A2A2A" strokeWidth="1" />
+      <line x1={PAD.left} y1={PAD.top} x2={PAD.left} y2={PAD.top + ch} stroke="var(--border-color-subtle)" strokeWidth="1" />
+      <line x1={PAD.left} y1={PAD.top + ch} x2={PAD.left + cw} y2={PAD.top + ch} stroke="var(--border-color-subtle)" strokeWidth="1" />
       {outPath && <path d={outPath} fill="none" stroke={C.amber} strokeWidth="1.5" opacity="0.7" />}
       {spPath  && <path d={spPath}  fill="none" stroke={C.cyan}  strokeWidth="1.5" strokeDasharray="6,4" />}
       {pvPath  && <path d={pvPath}  fill="none" stroke={C.green} strokeWidth="2" />}
       {/* Current time — top right */}
       <text x={PAD.left + cw} y={PAD.top + 10} textAnchor="end"
-        fill="#555" fontSize="10" fontFamily="monospace">
+        fill="var(--accent-muted)" fontSize="10" fontFamily="monospace">
         t = {tEnd.toFixed(1)}s
       </text>
     </svg>
@@ -260,7 +260,7 @@ export default function PIDPage() {
               style={{
                 padding: '8px 20px', borderRadius: 2, cursor: 'pointer',
                 border: `1px solid ${mode === m ? C.amber : C.border}`,
-                background: mode === m ? `${C.amber}18` : C.bg2,
+                background: mode === m ? 'rgba(var(--accent-amber-rgb), 0.09)' : C.bg2,
                 color: mode === m ? C.amber : C.text,
                 fontFamily: 'monospace', fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase',
                 transition: 'all 0.2s',
@@ -306,7 +306,7 @@ export default function PIDPage() {
               <button
                 onClick={resetSim}
                 style={btn()}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = '#EF4444'; el.style.color = '#EF4444'; }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'var(--accent-red)'; el.style.color = 'var(--accent-red)'; }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = C.border; el.style.color = C.text; }}
               >
                 ↺ Reiniciar
@@ -326,7 +326,7 @@ export default function PIDPage() {
                     style={{
                       flex: 1, padding: '6px 0', borderRadius: 2, cursor: 'pointer',
                       border: `1px solid ${simSpeed === s ? C.amber : C.border}`,
-                      background: simSpeed === s ? `${C.amber}18` : C.bg,
+                      background: simSpeed === s ? 'rgba(var(--accent-amber-rgb), 0.09)' : C.bg,
                       color: simSpeed === s ? C.amber : C.text,
                       fontFamily: 'monospace', fontSize: 11, letterSpacing: '0.1em',
                       transition: 'all 0.15s',
@@ -379,14 +379,14 @@ export default function PIDPage() {
             {/* SP / PV / OUT */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12 }}>
               {([
-                { label: 'SP',  value: display.sp,  color: C.cyan  },
-                { label: 'PV',  value: display.pv,  color: C.green },
-                { label: 'OUT', value: display.out, color: C.amber },
-              ] as const).map(item => (
+                { label: 'SP',  value: display.sp,  color: C.cyan,  colorRgb: '--accent-cyan-rgb'  },
+                { label: 'PV',  value: display.pv,  color: C.green, colorRgb: '--accent-green-rgb' },
+                { label: 'OUT', value: display.out, color: C.amber, colorRgb: '--accent-amber-rgb' },
+              ]).map(item => (
                 <div key={item.label} style={{
                   padding: 16, borderRadius: 2, textAlign: 'center',
-                  border: `1px solid ${item.color}44`,
-                  background: `${item.color}0A`,
+                  border: `1px solid rgba(var(${item.colorRgb}), 0.27)`,
+                  background: `rgba(var(${item.colorRgb}), 0.04)`,
                 }}>
                   <p style={{ color: item.color, fontFamily: 'monospace', fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 6 }}>
                     {item.label}

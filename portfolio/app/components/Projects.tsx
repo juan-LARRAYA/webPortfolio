@@ -21,14 +21,14 @@ export default function Projects() {
             name="Binexa"
             tag="Proyecto Web"
             description={t.projects.binexa}
-            href="https://conversor-juan.vercel.app"
+            href="https://binexa.juanlarraya.com.ar"
             image="/images/projects/binexa.png"
           />
           <ProjectGridCard
             name="openVision"
             tag="IA · Computer Vision"
             description={t.projects.openVision}
-            href="https://github.com/juan-LARRAYA/openVision"
+            href="https://vision.juanlarraya.com.ar"
             image="/images/projects/OpenVision Demo.png"
             dark
           />
@@ -36,7 +36,7 @@ export default function Projects() {
             name="CentralMap"
             tag="Proyecto Web"
             description={t.projects.centralMap}
-            href="https://github.com/juan-LARRAYA/CentralMap"
+            href="https://centralmap.juanlarraya.com.ar"
             image="/images/projects/central_map.png"
           />
           <ProjectGridCard
@@ -59,8 +59,16 @@ export default function Projects() {
             name="Votación Barrial"
             tag="Proyecto Web"
             description={t.projects.votacion}
-            href="https://github.com/juan-LARRAYA/votacion-barrial"
+            href="https://votacion.juanlarraya.com.ar"
             image="/images/projects/votacion-barrial.png"
+            dark
+          />
+          <ProjectGridCard
+            name="Voice 2 Text"
+            tag="IA · Web"
+            description={t.projects.voice2text}
+            href="https://voice.juanlarraya.com.ar"
+            image="/images/projects/voice2text.png"
             dark
           />
         </div>

@@ -7,7 +7,7 @@ interface ProjectCardProps {
   name: string;
   description: string;
   href: string;
-  image: string;
+  image?: string;
   tag?: string;
   dark?: boolean;
   contain?: boolean;
@@ -16,8 +16,8 @@ interface ProjectCardProps {
 
 export default function ProjectGridCard({ name, description, href, image, tag, dark = false, contain = false, imgPosition = 'top' }: ProjectCardProps) {
   const isExternal = href.startsWith('http');
-  const bg = dark ? '#111111' : 'var(--bg-medium)';
-  const textColor = dark ? '#ffffff' : 'var(--text-primary)';
+  const bg = 'var(--bg-medium)';
+  const textColor = 'var(--text-primary)';
 
   return (
     <motion.a
@@ -41,21 +41,23 @@ export default function ProjectGridCard({ name, description, href, image, tag, d
         <h3 style={{ fontSize: '1.8rem', fontWeight: 700, color: textColor, lineHeight: 1.15, marginBottom: '0.4rem' }}>
           {name}
         </h3>
-        <p style={{ fontSize: '1rem', fontWeight: 500, color: dark ? 'rgba(255,255,255,0.6)' : 'var(--accent-muted)', lineHeight: 1.5 }}>
+        <p style={{ fontSize: '1rem', fontWeight: 500, color: 'var(--accent-muted)', lineHeight: 1.5 }}>
           {description}
         </p>
       </div>
 
       {/* Image fills bottom */}
-      <div style={{ position: 'relative', flex: 1, minHeight: '220px' }}>
-        <Image
-          src={image}
-          alt={name}
-          fill
-          sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw"
-          style={{ objectFit: contain ? 'contain' : 'cover', objectPosition: imgPosition, padding: contain ? '1rem' : '0' }}
-        />
-      </div>
+      {image && (
+        <div style={{ position: 'relative', flex: 1, minHeight: '220px' }}>
+          <Image
+            src={image}
+            alt={name}
+            fill
+            sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw"
+            style={{ objectFit: contain ? 'contain' : 'cover', objectPosition: imgPosition, padding: contain ? '1rem' : '0' }}
+          />
+        </div>
+      )}
     </motion.a>
   );
 }

@@ -16,9 +16,9 @@ export default function Hero() {
     <section ref={ref} className="relative min-h-screen flex flex-col justify-center overflow-hidden pcb-grid px-8 pt-24 pb-20">
       {/* Ambient blobs */}
       <div className="absolute top-1/3 -left-32 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(0,212,255,0.07) 0%, transparent 70%)', filter: 'blur(80px)' }} />
+        style={{ background: 'radial-gradient(ellipse, rgba(var(--accent-cyan-rgb), 0.07) 0%, transparent 70%)', filter: 'blur(80px)' }} />
       <div className="absolute bottom-1/4 -right-20 w-[350px] h-[350px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(245,166,35,0.07) 0%, transparent 70%)', filter: 'blur(80px)' }} />
+        style={{ background: 'radial-gradient(ellipse, rgba(var(--accent-amber-rgb), 0.07) 0%, transparent 70%)', filter: 'blur(80px)' }} />
 
       <motion.div className="relative z-10 w-full max-w-5xl mx-auto" style={{ y, opacity }}>
         {/* Eyebrow */}
@@ -55,8 +55,8 @@ export default function Hero() {
 
           <motion.a
             href="#proyectos"
-            style={{ background: '#F5A623', color: '#080808', borderRadius: '20px', padding: '14px 32px', fontSize: '14px', fontWeight: 600, letterSpacing: '0.05em', display: 'inline-block' }}
-            whileHover={{ scale: 1.04, background: '#e8971f' }}
+            style={{ background: 'var(--accent-amber)', color: 'var(--bg-dark)', borderRadius: '20px', padding: '14px 32px', fontSize: '14px', fontWeight: 600, letterSpacing: '0.05em', display: 'inline-block' }}
+            whileHover={{ scale: 1.04, background: 'var(--accent-amber-hover)' }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.18 }}
           >
@@ -64,8 +64,8 @@ export default function Hero() {
           </motion.a>
           <motion.a
             href="#sobre-mi"
-            style={{ borderColor: 'rgba(242,240,233,0.25)', color: 'rgba(242,240,233,0.7)', background: 'transparent', borderRadius: '20px', padding: '14px 32px', fontSize: '14px', fontWeight: 600, letterSpacing: '0.05em', display: 'inline-block', border: '1px solid rgba(242,240,233,0.25)' }}
-            whileHover={{ borderColor: 'rgba(242,240,233,0.7)', color: '#F2F0E9', background: 'rgba(242,240,233,0.06)' }}
+            style={{ borderColor: 'rgba(var(--text-primary-rgb), 0.25)', color: 'rgba(var(--text-primary-rgb), 0.7)', background: 'transparent', borderRadius: '20px', padding: '14px 32px', fontSize: '14px', fontWeight: 600, letterSpacing: '0.05em', display: 'inline-block', border: '1px solid rgba(var(--text-primary-rgb), 0.25)' }}
+            whileHover={{ borderColor: 'rgba(var(--text-primary-rgb), 0.7)', color: 'var(--text-primary)', background: 'rgba(var(--text-primary-rgb), 0.06)' }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.18 }}
           >
