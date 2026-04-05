@@ -14,7 +14,7 @@ export default function About() {
       <div className="max-w-2xl mx-auto">
 
         {/* Giant staggered heading */}
-        <div style={{ marginBottom: '4rem', marginTop: '3rem' }}>
+        <div style={{ marginBottom: '4rem', marginTop: '1rem' }}>
           <SectionHeading delay={0.14}>
             {p.prefix}{' '}
             <span style={{ color: 'var(--accent-amber)' }}>{p.word1}</span>{' '}
@@ -39,8 +39,8 @@ export default function About() {
           >
             <div style={{
                 background: 'var(--bg-medium)',
-                maskImage: 'radial-gradient(circle at 50% 50%, black 55%, transparent 65%)',
-                WebkitMaskImage: 'radial-gradient(circle at 50% 50%, black 50%, transparent 65%)',
+                maskImage: 'radial-gradient(circle at 50% 50%, black 55%, transparent 63%)',
+                WebkitMaskImage: 'radial-gradient(circle at 50% 50%, black 50%, transparent 63%)',
               }}>
               <Image src="/images/logo-final-v2.png" alt="Juan Cruz Larraya" width={330} height={440} style={{ objectFit: 'contain', padding: '1rem', width: '100%', height: 'auto' }} />
             </div>

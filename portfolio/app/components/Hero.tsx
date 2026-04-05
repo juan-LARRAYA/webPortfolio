@@ -36,11 +36,13 @@ export default function Hero() {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.3 }}>
           <DeformableHeading
             text="Juan Cruz"
-            className="text-[clamp(3.5rem,11vw,10rem)] font-bold leading-[0.9] tracking-tight glow-amber text-accent-amber text-center"
+            className="text-[clamp(3.5rem,11vw,10rem)] font-bold leading-[0.9] tracking-tight text-center"
+            style={{ color: 'var(--heading-color)' }}
           />
           <DeformableHeading
             text="Larraya"
-            className="text-[clamp(3.5rem,11vw,10rem)] font-bold leading-[0.9] tracking-tight text-accent-text text-center"
+            className="text-[clamp(3.5rem,11vw,10rem)] font-bold leading-[0.9] tracking-tight text-center"
+            style={{ color: 'var(--heading-color)' }}
           />
         </motion.div>
 

@@ -8,9 +8,10 @@ import { splitText } from '@/utils/textSplitter';
 interface DeformableHeadingProps {
   text: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-export default function DeformableHeading({ text, className = '' }: DeformableHeadingProps) {
+export default function DeformableHeading({ text, className = '', style }: DeformableHeadingProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { parts } = splitText(text, 'chars');
 
@@ -78,7 +79,7 @@ export default function DeformableHeading({ text, className = '' }: DeformableHe
   }, []);
 
   return (
-    <div ref={containerRef} className={`overflow-visible ${className}`}>
+    <div ref={containerRef} className={`overflow-visible ${className}`} style={style}>
       {parts.map((char, index) => (
         <motion.span
           key={index}
@@ -92,9 +93,7 @@ export default function DeformableHeading({ text, className = '' }: DeformableHe
           }}
           whileHover={{
             scale: 1.3,
-            color: 'var(--accent-amber-light)',
-            textShadow: '0 0 20px rgba(var(--accent-amber-light-rgb), 0.6)',
-            transition: { duration: 0.2 },
+            transition: { duration: 0.15 },
           }}
           style={{
             display: 'inline-block',

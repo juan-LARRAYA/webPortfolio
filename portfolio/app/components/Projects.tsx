@@ -11,7 +11,7 @@ export default function Projects() {
     <section id="proyectos" className="pt-40 pb-36 px-8 border-t" style={{ borderColor: 'var(--border-color)', margin: '0 var(--section-mx)' }}>
       <div className="max-w-2xl mx-auto">
 
-        <div style={{ marginBottom: '5rem' }}>
+        <div style={{ marginBottom: '3rem',  marginTop: '1rem'}}>
           <SectionHeading>{t.projects.heading}</SectionHeading>
         </div>
 

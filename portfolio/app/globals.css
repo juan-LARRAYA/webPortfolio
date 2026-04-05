@@ -18,11 +18,13 @@
   --accent-muted-rgb: 85, 85, 85;
 
   /* ── Accent amber ── */
+  --heading-color: var(--text-primary);
   --accent-amber: #F5A623;
   --accent-amber-rgb: 245, 166, 35;
   --accent-amber-hover: #e8971f;
   --accent-amber-light: #F2D478;
   --accent-amber-light-rgb: 242, 212, 120;
+  --glow-amber-light: 0 0 20px rgba(242, 212, 120, 0.6);
 
   /* ── Accent cyan ── */
   --accent-cyan: #00D4FF;
@@ -57,11 +59,11 @@
 
 /* ── Light theme ── */
 [data-theme="light"] {
-  --bg-dark: #F7F7F2;
-  --bg-dark-rgb: 247, 247, 242;
-  --bg-medium: #EFEFEA;
-  --border-color: #D8D8D2;
-  --border-color-subtle: #C8C8C2;
+  --bg-dark: #E8E5DC;
+  --bg-dark-rgb: 232, 229, 220;
+  --bg-medium: #CCCAC2;
+  --border-color: #B8B5AE;
+  --border-color-subtle: #A8A5A0;
 
   --text-primary: #1A1A1A;
   --text-primary-rgb: 26, 26, 26;
@@ -73,9 +75,12 @@
   --accent-amber-hover: #B87008;
   --accent-amber-light: #C89010;
   --accent-amber-light-rgb: 200, 144, 16;
+  --glow-amber-light: 0 0 20px rgba(200, 144, 16, 0.6);
 
-  --accent-cyan: #0099BB;
-  --accent-cyan-rgb: 0, 153, 187;
+  --heading-color: var(--text-primary);
+
+  --accent-cyan: #C4820A;
+  --accent-cyan-rgb: 196, 130, 10;
 }
 
 * {
@@ -102,6 +107,21 @@ body {
     linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
   background-size: 40px 40px;
+}
+
+[data-theme="light"] .pcb-grid {
+  background-image: none;
+}
+
+[data-theme="light"] .pcb-grid::before {
+  content: '';
+  position: absolute;
+  inset: -40%;
+  background-image: radial-gradient(circle, rgba(212, 133, 10, 0.2) 6px, transparent 6px);
+  background-size: 32px 32px;
+  transform: rotate(14deg);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Glow utilities */
